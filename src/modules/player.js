@@ -1,8 +1,9 @@
 import gameBoard from './gameboard';
+import randomShips from './randomShips';
 
-const player = (name, shipArray) => {
-    const playerShips = shipArray;
-
+const player = (name = 'your name', shipArray) => {
+    const playerShips = shipArray || randomShips();
+    
     const board = gameBoard(playerShips);
     
     const attack = (enemyBoard, attackCoords) => {

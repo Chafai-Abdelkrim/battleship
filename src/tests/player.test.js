@@ -2,7 +2,7 @@ import player from '../modules/player';
 
 describe('Player', () => {
     it('Player should return an object with board and attack()', () => {
-        expect(player('Name')).toMatchObject({
+        expect(player('Name')).toStrictEqual({
             playerShips: expect.any(Array),
             board: expect.any(Object),
             name: expect.any(String),
