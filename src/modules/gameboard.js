@@ -40,11 +40,22 @@ const gameBoard = (array) => {
         return isHit;
     };
 
-    const checkWin = () => {};
+    const checkWin = () => {
+        return ships.every((ship) => ship.isSunk());
+    };
 
-    const checkRemaining = () => {};
+    const checkRemaining = () => {
+        const workingShips = [];
+        ships.forEach((ship) => {
+            if (!ship.isSunk()) workingShips.push(ship);
+        });
 
-    const checkSunk = () => {};
+        return workingShips.length;
+    };
+
+    const checkSunk = () => {
+        return ships.filter((ship) => ship.isSunk());
+    };
 
     return {
         availableAttacks,
