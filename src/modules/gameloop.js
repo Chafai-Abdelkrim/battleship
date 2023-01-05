@@ -59,8 +59,30 @@ const gameLoop = (name, shipArray) => {
     };
 
     const takeTurn = (coords) => {
-        
-    }
+        if (delay) return;
+
+        const checkCoords = theEnemy.board.availableAttacks.some(
+            (item) => item.toString() === coords.toString()
+        );
+
+        if (!checkCoords) return;
+
+        const attack = thePlayer.attack(theEnemy.board, coords);
+
+        updateBoard(coords, attack, thePlayer, theEnemy);
+
+        if (theEnemy.board.checkWin()) {
+            gameOver(thePlayer);
+            return;
+        }
+
+        if (!attack) {
+            updateTurn();
+            aiTurn();
+        }
+    };
+
+    return { takeTurn };
 };
 
 export default gameLoop;
