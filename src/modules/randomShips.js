@@ -1,5 +1,3 @@
-import ship from "./ship";
-
 const randomCoords = (length) => {
     const direction = Math.round(Math.random());
     const coords = [];
