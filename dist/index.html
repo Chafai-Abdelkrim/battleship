@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Battleship</title>
-<script defer src="main.fdb2493bc4045c544048.js"></script></head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="icon"
+            href="imgs/battleship-icon.501f308fbd1834a6af32..svg"
+            type="image/x-icon"
+        />
+        <title>Battleship</title>
+    <script defer src="main.fdb2493bc4045c544048.js"></script></head>
+    <body>
+        <header class="header">
+            <h1 class="header-title">Battleship Wars!</h1>
+        </header>
+
+        <main class="main">
+            <div class="board-container">
+                <h2 class="board-one-title">Player</h2>
+            </div>
+            <div class="board-container">
+                <h2 class="board-two-title">Computer</h2>
+            </div>
+        </main>
+
+        <div class="modal">
+            <div class="modal-container">
+                <h2 class="modal-outcome display-none"></h2>
+                <h2 class="modal-title">Place your Ships 👇</h2>
+                <div class="modal-board"></div>
+                <div class="modal-inputs">
+                    <button class="modal-random" title="Random Ships">
+                        <svg
+                            style="width: 24px; height: 24px"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M2 12C2 16.97 6.03 21 11 21C13.39 21 15.68 20.06 17.4 18.4L15.9 16.9C14.63 18.25 12.86 19 11 19C4.76 19 1.64 11.46 6.05 7.05C10.46 2.64 18 5.77 18 12H15L19 16H19.1L23 12H20C20 7.03 15.97 3 11 3C6.03 3 2 7.03 2 12Z"
+                            />
+                        </svg>
+                    </button>
+                    <form class="modal-form" action="">
+                        <label class="modal-name-label" for="modal-name-label">
+                            Enter Your Name:
+                        </label>
+                        <input
+                            class="modal-name-input"
+                            id="modal-name-input"
+                            type="text"
+                            placeholder="Player"
+                            maxlength="30"
+                            required
+                        />
+                        <button class="modal-submit"> Start Game 🎮</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
