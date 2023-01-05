@@ -39,4 +39,10 @@ describe('Player', () => {
 
         expect(playerTwo.board.checkWin()).toBe(true);
     });
+
+    it('Player should contain 5 random ships when it\'s not given an array',() => {
+        const playerOne = player();
+
+        expect(playerOne.board.checkRemaining()).toBe(5);
+    })
 });
