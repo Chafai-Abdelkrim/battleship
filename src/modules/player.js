@@ -1,7 +1,7 @@
 import gameBoard from './gameboard';
 import randomShips from './randomShips';
 
-const player = (name = 'your name', shipArray) => {
+const player = (name = 'Unknown', shipArray) => {
     const playerShips = shipArray || randomShips();
     
     const board = gameBoard(playerShips);
