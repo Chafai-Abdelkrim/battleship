@@ -2,6 +2,7 @@ import gameLoop from './gameloop';
 import player from './player';
 import randomShips from './randomShips';
 
+//function to build the game board
 const buildBoards = () => {
     const [boardOneContainer, boardTwoContainer] =
         document.querySelectorAll('.board-container');
@@ -36,7 +37,7 @@ const buildBoards = () => {
     boardOneContainer.append(boardOne);
     boardTwoContainer.append(boardTwo);
 };
-
+//function that lets theplayer make his move by clicking on one of the cells
 const boardController = (gameloop) => {
     const boardTwo = document.querySelector('.board-two');
 
@@ -46,7 +47,7 @@ const boardController = (gameloop) => {
         gameLoop.takeTurn(coords);
     });
 };
-
+//function that updates the board cells after an action has been made
 const updateBoard = (coords, attack, player, enemy) => {
     const boardOne = document.querySelector('.board-one');
     const boardTwo = document.querySelector('.board-two');
@@ -79,7 +80,7 @@ const updateBoard = (coords, attack, player, enemy) => {
         });
     }
 };
-
+//function to show the players ships on the board
 const showPlayerShips = (playerShips) => {
     const boardOne = document.querySelector('.board-one');
 
@@ -96,3 +97,7 @@ const showPlayerShips = (playerShips) => {
         });
     });
 };
+//function to totate a ship horizontaly or verticaly
+const rotateShip = (ship) => {
+
+}
