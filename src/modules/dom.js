@@ -35,3 +35,13 @@ const buildBoards = () => {
     boardOneContainer.append(boardOne);
     boardTwoContainer.append(boardTwo);
 };
+
+const boardController = (gameloop) => {
+    const boardTwo = document.querySelector('.board-two');
+
+    boardTwo.addEventListener('click', (e) => {
+        if (!e.target.dataset.coords) return;
+        const coords = e.target.dataset.coords.split(',').map(Number);
+        gameLoop.takeTurn(coords);
+    })
+}
