@@ -79,3 +79,20 @@ const updateBoard = (coords, attack, player, enemy) => {
         });
     }
 };
+
+const showPlayerShips = (playerShips) => {
+    const boardOne = document.querySelector('.board-one');
+
+    playerShips.forEach((ship) => {
+        ship.forEach((coords) => {
+            for (let i = 0; i < boardOne.childNodes.length; i++) {
+                const node = boardOne.childNodes[i];
+
+                if (node.dataset.coords === coords.toString()) {
+                    node.classList.add('friendly');
+                    break;
+                }
+            }
+        });
+    });
+};

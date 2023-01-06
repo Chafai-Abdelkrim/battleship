@@ -5,7 +5,7 @@ const gameLoop = (name, shipArray) => {
     let theEnemy = player();
     let delay = false;
 
-    showPlayerShips(player.playerShips);
+    showPlayerShips(thePlayer.playerShips);
 
     const updateTurn = () => {
         const nextPlayer = theEnemy;
