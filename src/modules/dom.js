@@ -110,7 +110,7 @@ const rotateShip = (ship) => {
             const y = coord[1] - index;
             if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
             rotatedShip.push([x, y]);
-        })
+        });
     }
 
     if (ship[0][1] === ship[1][1]) {
@@ -119,10 +119,39 @@ const rotateShip = (ship) => {
             const y = coord[1] + index;
             if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
             rotatedShip.push([x, y]);
-        })
+        });
     }
 
     if (outOfBounds) return ship;
 
     return rotatedShip;
+};
+//function to move a ship on the board
+const moveShip = (ship, newCoords) => {
+    const movedShip = [];
+    let outOfBounds = false;
+
+    if (ship.length < 2) return [newCoords];
+
+    if (ship[0][0] === ship[1][0]) {
+        ship.forEach((coord, index) => {
+            const x = newCoords[0];
+            const y = newCoords[1] + index;
+            if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
+            movedShip.push([x, y]);
+        })
+    }
+
+    if (ship[0][1] === ship[1][1]) {
+        ship.forEach((coord, index) => {
+            const x = newCoords[0] - index;
+            const y = newCoords[1];
+            if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
+            movedShip.push([x, y]);
+        })
+    }
+
+    if (outOfBounds) return ship;
+
+    return movedShip;
 }
