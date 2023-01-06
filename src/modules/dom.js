@@ -99,5 +99,30 @@ const showPlayerShips = (playerShips) => {
 };
 //function to totate a ship horizontaly or verticaly
 const rotateShip = (ship) => {
+    const rotatedShip = [];
+    let outOfBounds = false;
 
+    if (ship.length < 2) return ship;
+
+    if (ship[0][0] === ship[1][0]) {
+        ship.forEach((coord, index) => {
+            const x = coord[0] - index;
+            const y = coord[1] - index;
+            if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
+            rotatedShip.push([x, y]);
+        })
+    }
+
+    if (ship[0][1] === ship[1][1]) {
+        ship.forEach((coord, index) => {
+            const x = coord[0] + index;
+            const y = coord[1] + index;
+            if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
+            rotatedShip.push([x, y]);
+        })
+    }
+
+    if (outOfBounds) return ship;
+
+    return rotatedShip;
 }
