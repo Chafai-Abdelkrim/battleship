@@ -1,5 +1,4 @@
 import gameLoop from './gameloop';
-import player from './player';
 import randomShips from './randomShips';
 
 //function to build the game board
@@ -139,7 +138,7 @@ const moveShip = (ship, newCoords) => {
             const y = newCoords[1] + index;
             if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
             movedShip.push([x, y]);
-        })
+        });
     }
 
     if (ship[0][1] === ship[1][1]) {
@@ -148,10 +147,47 @@ const moveShip = (ship, newCoords) => {
             const y = newCoords[1];
             if (x < 0 || x > 9 || y < 0 || y > 9) outOfBounds = true;
             movedShip.push([x, y]);
-        })
+        });
     }
 
     if (outOfBounds) return ship;
 
     return movedShip;
-}
+};
+//function to build the modal board
+const buildModalBoard = (board, ships) => {
+    for (let i = 10; i > 0; i--) {
+        for (let j = 0; j < 10; j++) {
+            const div = document.createElement('div');
+
+            div.setAttribute('data-coords', `${i},${j}`);
+            div.classList.add('modal-board-cell');
+
+            board.append(div);
+        }
+    }
+
+    ships.forEach((ship, index) => {
+        const coords = ship[0];
+
+        let isVertical = false;
+        if (ship.length > 1) isVertical = ship[0][0] !== ship[1][0];
+
+        const rotation = isVertical ? 'vertical' : 'horizontal';
+
+        for (let i = 0; i < board.childNodes.length; i++) {
+            const node = board.childNodes[i];
+
+            if (node.dataset.coords === coords.toString()) {
+                const div = document.createElement('div');
+                div.classList.add('modal-board-ship');
+                div.classList.add(`${rotation}-${ship.length}`);
+                div.setAttribute('data-index', index);
+                div.setAttribute('draggable', 'true');
+
+                node.append(div);
+                break;
+            }
+        }
+    });
+};
