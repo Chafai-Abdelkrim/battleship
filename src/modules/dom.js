@@ -191,3 +191,54 @@ const buildModalBoard = (board, ships) => {
         }
     });
 };
+//function to place the ships where you want on the board
+const arrangeShips = (ships) => {
+    const boardShips = document.querySelectorAll('.modal-board.ship');
+
+    boardShips.forEach((boardShip) => {
+        //rotates the ship on the board when clicked
+        boardShip.addEventListener('click', (e) => {
+            const ship = ships[boardShip.dataset.index];
+            const rotatedShip = rotateShip(ship);
+            const newShips = [...ships];
+
+            if (ship.toString() === rotatedShip.toString()) return;
+
+            newShips.splice(boardShip.dataset.index, 1);
+
+            const unique = rotatedShip.every((rotatedCoords) => {
+                return newShips.every((newShip) => {
+                    return newShip.every((newCoords) => {
+                        return (
+                            newCoords.toString() !== rotatedCoords.toString()
+                        );
+                    });
+                });
+            });
+
+            if (unique) {
+                ships.splice(e.target.dataset.index, 1, rotatedShip);
+                e.target.classList.toggle(`vertical-${rotatedShip.length}`);
+                e.target.classList.toggle(`horizontal-${rotatedShip.length}`);
+            }
+        });
+        //drages the ship on the board 
+        const boardCells = document.querySelectorAll('.modal-board-cell');
+
+        boardCells.forEach((cell) => {
+            cell.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const draggable = document.querySelector('.dragging');
+                const ship = ships[draggable.dataset.index];
+                const movedShip = moveShip(ship, cell.dataset.coords.split(',').map(Number));
+                const newShips = [...ships];
+
+                if (ship.toString() === movedShip.toString() && movedShip.length > 2) return;
+
+                newShips.splice(draggable.dataset.index, 1);
+
+                
+            })
+        })
+    });
+};
