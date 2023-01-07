@@ -222,7 +222,7 @@ const arrangeShips = (ships) => {
                 e.target.classList.toggle(`horizontal-${rotatedShip.length}`);
             }
         });
-        //drages the ship on the board 
+        //drages the ship on the board
         const boardCells = document.querySelectorAll('.modal-board-cell');
 
         boardCells.forEach((cell) => {
@@ -230,15 +230,35 @@ const arrangeShips = (ships) => {
                 e.preventDefault();
                 const draggable = document.querySelector('.dragging');
                 const ship = ships[draggable.dataset.index];
-                const movedShip = moveShip(ship, cell.dataset.coords.split(',').map(Number));
+                const movedShip = moveShip(
+                    ship,
+                    cell.dataset.coords.split(',').map(Number)
+                );
                 const newShips = [...ships];
 
-                if (ship.toString() === movedShip.toString() && movedShip.length > 2) return;
+                if (
+                    ship.toString() === movedShip.toString() &&
+                    movedShip.length > 2
+                )
+                    return;
 
                 newShips.splice(draggable.dataset.index, 1);
 
-                
-            })
-        })
+                const unique = movedShip.every((movedCoords) => {
+                    return newShips.every((newShip) => {
+                        return newShip.every((newCoords) => {
+                            return (
+                                newCoords.toString() !== movedCoords.toString()
+                            );
+                        });
+                    });
+                });
+
+                if (unique) {
+                    ships.splice(draggable.dataset.index, 1, movedShip);
+                    cell.append(draggable);
+                }
+            });
+        });
     });
 };
