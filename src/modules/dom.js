@@ -260,5 +260,13 @@ const arrangeShips = (ships) => {
                 }
             });
         });
+
+        boardShip.addEventListener('dragstart', () => {
+            boardShip.classList.add('dragging');
+        });
+
+        boardShip.addEventListener('dragend', () => {
+            boardShip.classList.remove('dragging');
+        });
     });
 };
