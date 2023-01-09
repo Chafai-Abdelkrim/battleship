@@ -11,21 +11,26 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     font-family: 'Poppins', sans-serif;
     color: var(--clr-text);
     background: var(--clr-background);
 }
-/* header */
+/* Header */
 .header {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--clr-light-background);
+    color: var(--clr-important-text);
     width: 75%;
     height: 6rem;
     border-radius: 2rem;
+    margin-top: 3rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 .header-title {
     letter-spacing: 8px;
@@ -47,6 +52,61 @@ body {
     height: 2rem;
     background-image: url(../imgs/rocket-right.svg);
     background-size: contain;
+}
+/* Main */
+.main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    padding: 1rem 0;
+    overflow-y: auto;
+    overflow-y: overlay;
+}
+.board-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    padding: 1rem;
+}
+.board-one-title,
+.board-two-title {
+    font-size: 1.7rem;
+}
+.board-one,
+.board-two {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 350px;
+    background-color: var(--clr-light-background);
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(14, 30, 37, 0.3) 0px 2px 4px 0px, rgba(14, 30, 37, 0.5) 0px 2px 16px 0px;
+}
+.board-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+div[data-coords='10,0'] {
+    border-radius: 1rem 0 0 0;
+}
+div[data-coords='10,9'] {
+    border-radius: 0 1rem 0 0;
+}
+div[data-coords='1,0'] {
+    border-radius: 0 0 0 1rem;
+}
+div[data-coords='1,9'] {
+    border-radius: 0 0 1rem 0;
 }
 
 /* hide  */
