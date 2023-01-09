@@ -301,3 +301,25 @@ const startGameModal = () => {
         arrangeShips(ships);
     });
 };
+//function that called when aplayer has lost and the game is over
+const gameOver = (currentPlayer) => {
+    const modal = document.querySelector('.modal');
+    const modalTitle = document.querySelector('.modal-title');
+    const outCome = document.querySelector('.modal-outcome');
+
+    outCome.innerText = `You ${currentPlayer.name ? 'Won 🥳' : 'Lost 🤷‍♂️'}`;
+    outCome.classList.remove('display-none');
+    modalTitle.innerText = 'Rearrange your ships and go again!';
+    modal.classList.remove('display-none');
+
+    buildBoards();
+};
+
+export {
+    buildBoards,
+    boardController,
+    updateBoard,
+    showPlayerShips,
+    startGameModal,
+    gameOver,
+};
