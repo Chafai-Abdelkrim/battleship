@@ -270,3 +270,34 @@ const arrangeShips = (ships) => {
         });
     });
 };
+//function that starts the game
+const startGameModal = () => {
+    const board = document.querySelector('.modal-board');
+    const form = document.querySelector('modal-form');
+    const randomBtn = document.querySelector('.modal-random');
+
+    let ships = randomShips();
+
+    buildModalBoard(board, ships);
+    arrangeShips(ships);
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nameInput = document.querySelector('.modal-name-input');
+        const name = document.querySelector('.board-one-title');
+        const modal = document.querySelector('.modal');
+        const newGame = gameLoop(nameInput, ships);
+
+        modal.classList.add('display-none');
+        name.innerText = nameInput.value;
+
+        boardController(newGame);
+    });
+
+    randomBtn.addEventListener('click', () => {
+        ships = randomShips();
+        board.textContent = '';
+        buildModalBoard(board, ships);
+        arrangeShips(ships);
+    });
+};
