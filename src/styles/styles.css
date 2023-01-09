@@ -1,0 +1,55 @@
+@import '_reset.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+    --clr-background: #9ab8ba;
+    --clr-light-background: #ddf7f8;
+    --clr-important-text: #045256;
+    --clr-text: #0b1516;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: var(--clr-text);
+    background: var(--clr-background);
+}
+/* header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-light-background);
+    width: 75%;
+    height: 6rem;
+    border-radius: 2rem;
+}
+.header-title {
+    letter-spacing: 8px;
+}
+.header-title::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../imgs/rocket-left.svg);
+    background-size: contain;
+}
+.header-title::after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 2rem;
+    height: 2rem;
+    background-image: url(../imgs/rocket-right.svg);
+    background-size: contain;
+}
+
+/* hide  */
+.display-none {
+    display: none;
+}
