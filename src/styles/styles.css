@@ -32,9 +32,11 @@ body {
         rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
         rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
+
 .header-title {
     letter-spacing: 8px;
 }
+
 .header-title::before {
     content: '';
     display: inline-block;
@@ -44,6 +46,7 @@ body {
     background-image: url(../imgs/rocket-left.svg);
     background-size: contain;
 }
+
 .header-title::after {
     content: '';
     display: inline-block;
@@ -53,6 +56,7 @@ body {
     background-image: url(../imgs/rocket-right.svg);
     background-size: contain;
 }
+
 /* Main */
 .main {
     display: flex;
@@ -65,6 +69,7 @@ body {
     overflow-y: auto;
     overflow-y: overlay;
 }
+
 .board-container {
     display: flex;
     flex-direction: column;
@@ -73,10 +78,12 @@ body {
     max-width: 350px;
     padding: 1rem;
 }
+
 .board-one-title,
 .board-two-title {
     font-size: 1.7rem;
 }
+
 .board-one,
 .board-two {
     display: grid;
@@ -88,13 +95,15 @@ body {
     background-color: var(--clr-light-background);
     margin: 1rem;
     border-radius: 1rem;
-    box-shadow: rgba(14, 30, 37, 0.3) 0px 2px 4px 0px, rgba(14, 30, 37, 0.5) 0px 2px 16px 0px;
+    box-shadow: rgba(14, 30, 37, 0.3) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.5) 0px 2px 16px 0px;
 }
+
 .board-cell {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid grey;
 }
 div[data-coords='10,0'] {
     border-radius: 1rem 0 0 0;
@@ -107,6 +116,31 @@ div[data-coords='1,0'] {
 }
 div[data-coords='1,9'] {
     border-radius: 0 0 1rem 0;
+}
+.board-cell.friendly {
+    background-color: var(--clr-important-text);
+}
+.board-cell.hit::before {
+    content: '';
+    width: 50%;
+    height: 50%;
+    border-radius: 100vmax;
+    background-color: #a80b44;
+}
+.board-cell.sunk {
+    background-color: #a80b44;
+}
+.board-cell.miss::before {
+    content: '';
+    width: 50%;
+    height: 50%;
+    border-radius: 100vmax;
+    background-color: var(--clr-text);
+}
+
+.board-two .board-cell:hover:not(.friendly, .hit, .sunk, .miss) {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: crosshair;
 }
 
 /* hide  */
