@@ -156,6 +156,154 @@ div[data-coords='1,9'] {
     z-index: 1;
 }
 
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    padding: 2rem;
+    background-color: var(--clr-background);
+    border-radius: 1.5rem;
+    box-shadow: 0 0 22pt 5pt var(--clr-important-text);
+    width: 90%;
+    max-width: 400px;
+}
+
+.modal-outcome {
+    font-size: 1.8rem;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.modal-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 350px;
+    background-color: var(--clr-light-background);
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(14, 30, 37, 0.3) 0px 2px 4px 0px,
+        rgba(14, 30, 37, 0.5) 0px 2px 16px 0px;
+}
+
+.modal-board-cell {
+    border: 1px solid grey;
+}
+
+.modal-board-ship {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--clr-important-text);
+    cursor: move;
+}
+.modal-board-ship::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--clr-important-text);
+}
+.modal-board-ship.horizontal-1::after {
+    width: 0;
+}
+.modal-board-ship.horizontal-2::after {
+    left: 100%;
+    width: calc(100% + 2px);
+}
+.modal-board-ship.horizontal-3::after {
+    left: 100%;
+    width: calc(200% + 4px);
+}
+.modal-board-ship.horizontal-4::after {
+    left: 100%;
+    width: calc(300% + 6px);
+}
+.modal-board-ship.horizontal-5::after {
+    left: 100%;
+    width: calc(400% + 8.5px);
+}
+.modal-board-ship.vertical-2::after {
+    bottom: calc(-100% - 2px);
+    height: calc(100% + 2px);
+}
+.modal-board-ship.vertical-3::after {
+    bottom: calc(-200% - 4px);
+    height: calc(200% + 4px);
+}
+.modal-board-ship.vertical-4::after {
+    bottom: calc(-300% - 6px);
+    height: calc(300% + 6px);
+}
+.modal-board-ship.vertical-5::after {
+    bottom: calc(-400% - 8px);
+    height: calc(400% + 8px);
+}
+
+.modal-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-random {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--clr-text);
+    transition: .5s;
+}
+
+.modal-random:hover svg {
+    transition: .5s ease-in-out;
+    transform: rotate(360deg);
+    color: var(--clr-important-text);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.7rem;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.modal-name-input {
+    all: unset;
+    width: 80%;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--clr-important-text);
+}
+
+.modal-submit {
+    width: 80%;
+    height: 2.2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--clr-light-background);
+    color: var(--clr-important-text);
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .5s;
+}
+.modal-submit:hover {
+    color: var(--clr-light-background);
+    background-color: var(--clr-important-text);
+    transform: translateY(-3px);
+    box-shadow: 0 0 5pt 2pt var(--clr-light-background);
+}
 
 /* Footer */
 footer {
