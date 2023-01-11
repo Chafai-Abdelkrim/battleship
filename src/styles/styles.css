@@ -8,6 +8,28 @@
     --clr-text: #0b1516;
 }
 
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #ddf7f8 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #ddf7f8;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
 body {
     display: flex;
     flex-direction: column;
@@ -372,7 +394,49 @@ footer {
 }
 
 /* media queries */
-
+@media screen and (max-width: 670px) {
+    .header {
+        height: 5rem;
+        margin-top: 2rem;
+    }
+    .header-title {
+        letter-spacing: 2px;
+        font-size: 1.8rem;
+    }
+    .header-title::before {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    .header-title::after {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+    footer {
+        margin-bottom: 0;
+    }
+    .footer-link {
+        background-color: transparent;
+    }
+    .footer-link svg {
+        width: 50px;
+        height: 50px;
+    }
+    .footer-link:hover {
+        box-shadow: none;
+    }
+    .footer-link:hover p {
+        opacity: 0;
+    }
+    .footer-link:hover svg {
+        opacity: 1;
+        width: 50px;
+        height: 50px;
+        top: 5px;
+        right: 90px;
+        transform: rotate(360deg);
+        color: var(--clr-light-background);
+    }
+}
 
 /* hide  */
 .display-none {
