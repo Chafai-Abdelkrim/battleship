@@ -1,4 +1,5 @@
 import player from './player';
+import { showPlayerShips, updateBoard, gameOver } from './dom';
 
 const gameLoop = (name, shipArray) => {
     let thePlayer = player(name, shipArray);

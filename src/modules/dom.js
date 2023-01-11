@@ -11,8 +11,8 @@ const buildBoards = () => {
     boardOne.classList.add('board-one');
     boardTwo.classList.add('board-two');
 
-    for (let i = 10; i > 0; i--) {
-        for (let j = 0; j < 10; j++) {
+    for (let i = 9; i >= 0; i--) {
+        for (let j = 0; j <= 9; j++) {
             const div1 = document.createElement('div');
             const div2 = document.createElement('div');
 
@@ -43,7 +43,7 @@ const boardController = (gameloop) => {
     boardTwo.addEventListener('click', (e) => {
         if (!e.target.dataset.coords) return;
         const coords = e.target.dataset.coords.split(',').map(Number);
-        gameLoop.takeTurn(coords);
+        gameloop.takeTurn(coords);
     });
 };
 //function that updates the board cells after an action has been made
@@ -156,8 +156,8 @@ const moveShip = (ship, newCoords) => {
 };
 //function to build the modal board
 const buildModalBoard = (board, ships) => {
-    for (let i = 10; i > 0; i--) {
-        for (let j = 0; j < 10; j++) {
+    for (let i = 9; i >= 0; i--) {
+        for (let j = 0; j <= 9; j++) {
             const div = document.createElement('div');
 
             div.setAttribute('data-coords', `${i},${j}`);
@@ -193,7 +193,7 @@ const buildModalBoard = (board, ships) => {
 };
 //function to place the ships where you want on the board
 const arrangeShips = (ships) => {
-    const boardShips = document.querySelectorAll('.modal-board.ship');
+    const boardShips = document.querySelectorAll('.modal-board-ship');
 
     boardShips.forEach((boardShip) => {
         //rotates the ship on the board when clicked
@@ -273,7 +273,7 @@ const arrangeShips = (ships) => {
 //function that starts the game
 const startGameModal = () => {
     const board = document.querySelector('.modal-board');
-    const form = document.querySelector('modal-form');
+    const form = document.querySelector('.modal-form');
     const randomBtn = document.querySelector('.modal-random');
 
     let ships = randomShips();

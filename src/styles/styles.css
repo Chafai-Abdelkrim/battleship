@@ -106,16 +106,16 @@ body {
     align-items: center;
     border: 1px solid grey;
 }
-div[data-coords='10,0'] {
+div[data-coords='9,0'] {
     border-radius: 1rem 0 0 0;
 }
-div[data-coords='10,9'] {
+div[data-coords='9,9'] {
     border-radius: 0 1rem 0 0;
 }
-div[data-coords='1,0'] {
+div[data-coords='0,0'] {
     border-radius: 0 0 0 1rem;
 }
-div[data-coords='1,9'] {
+div[data-coords='0,9'] {
     border-radius: 0 0 1rem 0;
 }
 .board-cell.friendly {
@@ -304,6 +304,8 @@ div[data-coords='1,9'] {
     transform: translateY(-3px);
     box-shadow: 0 0 5pt 2pt var(--clr-light-background);
 }
+
+
 
 /* Footer */
 footer {

@@ -11,7 +11,7 @@ const gameBoard = (array) => {
         ships.push(newShip);
     });
 
-    for (let i = 0; i > 10; i++) {
+    for (let i = 0; i < 10; i++) {
         for (let j = 0; j < 10; j++) {
             availableAttacks.push([i, j]);
         }
@@ -19,7 +19,7 @@ const gameBoard = (array) => {
 
     const receiveAttack = (attackCoords) => {
         const attackedIndex = availableAttacks.findIndex(
-            (item) => item.toStirng() === attackCoords.toStirng()
+            (item) => item.toString() === attackCoords.toString()
         );
         availableAttacks.splice(attackedIndex, 1);
 
